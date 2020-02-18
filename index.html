@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dice Game</title>
+    <!-- <documentation at http://demos.jquerymobile.com/1.4.1/ > -->
+     <!-- <documentation at http://demos.jquerymobile.com/1.1.1/ > -->
+    
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+
+       <script src="index.js"></script>
+</head>
+
+<body>
+
+    <!-- Start of startpage -->
+    <div data-role="page"  id="home">
+            <!--  start page header -->
+            <div data-role="header" data-theme='b'>
+              <div display="block"><a href="#home">Home page</a>
+                <a href="#page1">Page 1</a>
+                <a href="#page2">Page 2</a>
+                <a href="#page3">Page 3</a></div>
+                <h1>The Online Storefront</h1>
+            </div>
+            <!--  login page content -->
+            <div data-role="content" data-theme='e'>
+              <p>Start page</p>
+              <p>Welcome to the store page! Please take a look at the recommended products below.</p>
+              <div id="recommended">recommended products go here</div>
+              <button id="btnRecommend" type="button">Show me a new product</button> 
+            </div>
+              
+            <!--  login page footer -->
+            <div data-role="footer" data-theme='b'>
+              <h1>Copyright 2020 by Kyu Kim</h1>
+            </div>
+        </div>
+
+
+        <div data-role="page"  id="page1">
+            <!--  newaccount page header -->
+            <div data-role="header" data-theme='b'>
+                <div display="block"><a href="#home">Home page</a>
+                  <a href="#page1">Page 1</a>
+                  <a href="#page2">Page 2</a>
+                  <a href="#page3">Page 3</a></div>
+                  <h1>The Online Storefront</h1>
+              </div>
+            <!--  newaccount page content -->
+            <div data-role="content" data-theme='e'>
+              <p>Product list page</p>
+              <p>You can place orders for products from here.</p>
+
+
+            </div>
+              
+            <!--  newaccount page footer -->
+            <div data-role="footer" data-theme='b'>
+              <h1>Copyright 2020 by Kyu Kim</h1>
+            </div>
+        </div>
+
+
+    <!-- Start of page2 -->
+    <div data-role="page"  id="page2">
+            <!--  page2 header -->
+            <div data-role="header" data-theme='b'>
+                <div display="block"><a href="#home">Home page</a>
+                  <a href="#page1">Page 1</a>
+                  <a href="#page2">Page 2</a>
+                  <a href="#page3">Page 3</a></div>
+                  <h1>The Online Storefront</h1>
+              </div>
+            <!--  page2 page content -->
+            <div data-role="content" data-theme='e'>
+                <p>Cart page</p>
+                <p>All of your currently carted items will be shown here, along with how many of each.</p>
+                <p>A price total will also be shown at the bottom.</p>
+
+            </div>
+              
+            <!-- footer -->
+            <div data-role="footer" data-theme='b'>
+              <h1>Copyright 2020 by Kyu Kim</h1>
+           </div>
+      </div>
+
+    <!-- Start of gamewon page -->
+    <div data-role="page"  id="page3">
+            <!--  gamewon page header -->
+            <div data-role="header" data-theme='b'>
+                <div display="block"><a href="#home">Home page</a>
+                  <a href="#page1">Page 1</a>
+                  <a href="#page2">Page 2</a>
+                  <a href="#page3">Page 3</a></div>
+                  <h1>The Online Storefront</h1>
+              </div>
+            <!--  gamewon page content -->
+            <div data-role="content" data-theme='e'>
+                <p>Purchase page</p>
+                <p>You will be able to purchase all items currently in your cart from here.</p>
+                <p>A prompt will ask you if you're sure you want to spend the total amount</p>
+                <p>A final message saying "Thank you for your purchase" will appear afterwards, and the cart is emptied.</p>
+
+            </div>
+              
+            <!-- footer -->
+            <div data-role="footer" data-theme='b'>
+              <h1>Copyright 2020 by Kyu Kim</h1>
+            </div>
+    </div>
+
+</body>
+</html>
