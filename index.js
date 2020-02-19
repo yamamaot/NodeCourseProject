@@ -1,38 +1,52 @@
 document.addEventListener("DOMContentLoaded", function(event){
 
-var ProductObject = function (pProductName, pPrice) {
-  this.ProductName = pProductName;
-  this.Price = pPrice;
-}
+    var ProductObject = function (pProductName, pPrice) {
+        this.ProductName = pProductName;
+        this.Price = pPrice;
+    }
 
-let productList = [];
-let userCart = [];
-let recommended = document.getElementById("recommended");
-
-let product0 = new ProductObject("Stereo", 200);
-let product1 = new ProductObject("Speakers", 150);
-let product2 = new ProductObject("Remote control", 20);
-
-productList.push(product0);
-productList.push(product1);
-productList.push(product2);
-
-
-console.log(productList);
-
-document.getElementById("btnRecommend").addEventListener("click", displayRandomProduct);
-
-function displayRandomProduct(){
-    let rnd = Math.floor((Math.random() * productList.length));
-    //let rnd = 0;
-    recommended.innerHTML = "Try the " + productList[rnd].ProductName + " for only " + productList[rnd].Price + " yollars today!";
-}
-
-displayRandomProduct();
-
-function displayAllProducts(){
+    //productList array is full of actual product objects.
+    //however, user cart is simply integers indicating how many of each [indexed product] is in cart.
+    //protections for going under 0 should be in place when at the cart page.
+    let productList = [];
+    let userCart = [];
     
-}
+
+    let product0 = new ProductObject("Stereo", 200);
+    let product1 = new ProductObject("Speakers", 150);
+    let product2 = new ProductObject("Remote control", 20);
+
+    productList.push(product0);
+    productList.push(product1);
+    productList.push(product2);
+
+
+    //console.log(productList);
+
+    document.getElementById("btnRecommend").addEventListener("click", displayRandomProduct);
+
+    function displayRandomProduct(){
+        let rnd = Math.floor((Math.random() * productList.length));
+        document.getElementById("recommended").innerHTML = "Try the " + productList[rnd].ProductName + " for only " + productList[rnd].Price + " yollars today!";
+        document.getElementById("recommendedImg").src = "images/products/" + productList[rnd].ProductName + ".jpg";
+    }
+
+    displayRandomProduct();
+
+    //display name, picture, and price along with a button to buy
+    function displayProduct(pProduct, pHtmlName, pHtmlPrice, pImage){
+        document.getElementById(pHtmlName).innerHTML = pProduct.ProductName;
+        document.getElementById(pHtmlPrice).innerHTML = "$" + pProduct.Price;  
+        document.getElementById(pImage).src = "images/products/" + pProduct.ProductName + ".jpg";
+        document.getElementById("btnCart1").addEventListener("click", addToCart);
+    }
+
+    //test displayProduct method on page1
+    displayProduct(productList[0], "productName1", "productPrice1", "productImg1");
+    
+    function addToCart(){
+        //figure out this functionality later
+    }
 
 });
 

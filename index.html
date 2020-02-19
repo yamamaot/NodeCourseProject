@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dice Game</title>
+    <title>Electronics Store</title>
     <!-- <documentation at http://demos.jquerymobile.com/1.4.1/ > -->
      <!-- <documentation at http://demos.jquerymobile.com/1.1.1/ > -->
     
@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    
-
-       <script src="index.js"></script>
+    <script src="index.js"></script>
 </head>
 
 <body>
@@ -32,6 +30,7 @@
               <p>Start page</p>
               <p>Welcome to the store page! Please take a look at the recommended products below.</p>
               <div id="recommended">recommended products go here</div>
+              <img id="recommendedImg" src="" alt="Product Image" style="width:100px;height:100px;">
               <button id="btnRecommend" type="button">Show me a new product</button> 
             </div>
               
@@ -55,7 +54,10 @@
             <div data-role="content" data-theme='e'>
               <p>Product list page</p>
               <p>You can place orders for products from here.</p>
-
+              <div id="productName1"></div>
+              <img id="productImg1" src="" alt="Product Image" style="width:100px;height:100px;">
+              <div id="productPrice1"></div>
+              <button id="btnCart1" type="button">Add this to cart!</button> 
 
             </div>
               
