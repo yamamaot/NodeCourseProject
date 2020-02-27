@@ -9,10 +9,9 @@ document.addEventListener("DOMContentLoaded", function(event){
     //however, user cart is simply integers indicating how many of each [indexed product] is in cart.
     //protections for going under 0 should be in place when at the cart page.
     let productList = [];
-    let priceList = [];
     let userCart = [];
     
-
+    //create products
     let product0 = new ProductObject("Stereo", 200);
     let product1 = new ProductObject("Speakers", 150);
     let product2 = new ProductObject("Remote control", 20);
@@ -22,17 +21,18 @@ document.addEventListener("DOMContentLoaded", function(event){
     productList.push(product0);
     productList.push(product1);
     productList.push(product2);
-    priceList.push(product0.Price);
-    priceList.push(product1.Price);
-    priceList.push(product2.Price);
 
     //fill cart with 0, as the cart is empty
     for (var i = 0; i < productList.length; i++){
         userCart.push(0);
     }
 
-
-    //console.log(productList);
+    //empty the cart after purchase
+    function emptyCart(){
+        for (var i = 0; i < userCart.length; i++){
+            userCart[i] = 0;
+        }
+    }
 
     document.getElementById("btnRecommend").addEventListener("click", displayRandomProduct);
 
@@ -63,8 +63,10 @@ document.addEventListener("DOMContentLoaded", function(event){
         document.getElementById(pButton).addEventListener("click", function(){ addToCartFirst(pProduct)});
     }
 
-        //test displayProduct method on page1
-        displayProduct(productList[0], "productName1", "productPrice1", "productImg1", "btnCart1");
+    //displayProduct method used on page1
+    displayProduct(productList[0], "productName0", "productPrice0", "productImg0", "btnCart0");
+    displayProduct(productList[1], "productName1", "productPrice1", "productImg1", "btnCart1");
+    displayProduct(productList[2], "productName2", "productPrice2", "productImg2", "btnCart2");
 
     //inflexible display cart method
     function displayCart(){
@@ -78,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function(event){
         userCart[productInt]++;
         displayCart();
     }
-
     function subtractFromCart(productInt){
         if (userCart[productInt] == 0){
             alert("There are no items to remove!");
@@ -88,61 +89,52 @@ document.addEventListener("DOMContentLoaded", function(event){
         }
     }
 
+    //get price total of all items in cart
     function getTotal() {
         let total = 0;
-        for(var i = 0; i < priceList.length; i++){
-            total += (priceList[i] * userCart[i]);
+        for(var i = 0; i < userCart.length; i++){
+            total += (productList[i].Price * userCart[i]);
         }
-        console.log(total);
+        return total;
     }
 
+    //show the current total on the purchase page
+    function displayPurchase(){
+        let cartTotal = getTotal();
+        if (cartTotal > 0){
+            document.getElementById("cartMessage").innerHTML = "Your total is: " + cartTotal;
+        } else {
+            document.getElementById("cartMessage").innerHTML = "There's nothing in your cart! Please add something to it.";
+        }
+    }
+
+    //purchase all items in cart when button is pressed
+    function purchaseItems(){
+        if (getTotal() > 0){
+            alert("Thank you for your purchase! $" + getTotal() + " has been deducted from your account. See you soon!");
+            emptyCart();
+            displayPurchase();
+        } else {
+            alert("Nothing in cart!");
+        }
+
+    }
+
+    //activate all buttons on the cart page
     document.getElementById("btnStereoMinus").addEventListener("click", function(){subtractFromCart(0)});
     document.getElementById("btnStereoPlus").addEventListener("click", function(){addToCart(0)});
     document.getElementById("btnSpeakerMinus").addEventListener("click", function(){subtractFromCart(1)});
     document.getElementById("btnSpeakerPlus").addEventListener("click", function(){addToCart(1)});
     document.getElementById("btnRemoteMinus").addEventListener("click", function(){subtractFromCart(2)});
     document.getElementById("btnRemotePlus").addEventListener("click", function(){addToCart(2)});
+    document.getElementById("btnPurchase").addEventListener("click", function(){purchaseItems()});
 
+    //load up amounts on the cart page and purchase page
     $(document).on("pagebeforeshow", "#page2", function(){
         displayCart();
     });
     $(document).on("pagebeforeshow", "#page3", function(){
-        getTotal();
+        displayPurchase();
     });
 
 });
-
-
-/*
-$(document).on("pagebeforeshow", "#page2", function(event){
-    document.getElementById("IDparmHere").innerHTML = "";
-    createList();
-});
-
-function createList() {
-  var divUserlist = document.getElementById("userlist");
-  while (divUserlist.firstChild) {    // remove any old data so don't get duplicates
-      divUserlist.removeChild(divUserlist.firstChild);
-  };
-  var ul = document.createElement('ul');
-  userArray.forEach(function (element,) {   // use handy array forEach method
-      var li = document.createElement('li');
-      // add player names with an anchor to get to next "page"  #pickbet
-      // use the html5 all purpose data-parm to set and pass along, the playerID for the li that is clicked
-      li.innerHTML = "<a data-transition='pop' class='onePlayer' data-parm=" + element.PlayerID + " href='#pickbet'> Pick your bet size. </a> " + element.PlayerFirstName + " " + element.PlayerLastName;
-      ul.appendChild(li);
-  });
-  //$("#notes").listview('refresh');  // maybe ?need this so jquery mobile will apply the styling to the newly added li's  
-  divUserlist.appendChild(ul);
-
-  // set up an event for each new li item, if user clicks any, it writes >>that<< items data-parm into the hidden html 
-  var classname = document.getElementsByClassName("onePlayer");
-  Array.from(classname).forEach(function (element) {
-      element.addEventListener('click', function(){
-          var parm = this.getAttribute("data-parm");  // passing in the record.Id
-          //do something here with parameter on  pickbet page
-          document.getElementById("IDparmHere").innerHTML = parm;
-          document.location.href = "index.html#pickbet";
-      });
-  });
-}; */

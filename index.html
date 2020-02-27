@@ -8,6 +8,7 @@
     
 
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="index.css">
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="index.js"></script>
@@ -15,26 +16,25 @@
 
 <body>
 
-    <!-- Start of startpage -->
+    <!-- Start of homepage -->
     <div data-role="page"  id="home">
-            <!--  start page header -->
+            <!--  home page header -->
             <div data-role="header" data-theme='b'>
               <div display="block"><a href="#home">Home page</a>
-                <a href="#page1">Page 1</a>
-                <a href="#page2">Page 2</a>
-                <a href="#page3">Page 3</a></div>
+                <a href="#page1">Product Display Page</a>
+                <a href="#page2">Cart Page</a>
+                <a href="#page3">Purchase Page</a></div>
                 <h1>The Online Storefront</h1>
             </div>
-            <!--  login page content -->
+            <!--  home page content -->
             <div data-role="content" data-theme='e'>
-              <p>Start page</p>
-              <p>Welcome to the store page! Please take a look at the recommended products below.</p>
-              <div id="recommended">recommended products go here</div>
-              <img id="recommendedImg" src="" alt="Product Image" style="width:100px;height:100px;">
+              <p style="text-align:center">Welcome to the store page! Please take a look at the recommended products below.</p>
+              <div id="recommended" style="text-align:center">recommended products go here</div>
+              <img margin-left="auto" margin-right="auto" id="recommendedImg" src="" alt="Product Image" style="width:200px;height:200px;">
               <button id="btnRecommend" type="button">Show me a new product</button> 
             </div>
               
-            <!--  login page footer -->
+            <!--  home page footer -->
             <div data-role="footer" data-theme='b'>
               <h1>Copyright 2020 by Kyu Kim</h1>
             </div>
@@ -42,24 +42,34 @@
 
 
         <div data-role="page"  id="page1">
-            <!--  newaccount page header -->
+            <!--  product display page header -->
             <div data-role="header" data-theme='b'>
                 <div display="block"><a href="#home">Home page</a>
-                  <a href="#page1">Page 1</a>
-                  <a href="#page2">Page 2</a>
-                  <a href="#page3">Page 3</a></div>
+                  <a href="#page1">Product Display Page</a>
+                  <a href="#page2">Cart Page</a>
+                  <a href="#page3">Purchase Page</a></div>
                   <h1>The Online Storefront</h1>
               </div>
-            <!--  newaccount page content -->
+            <!--  product display page content -->
             <div data-role="content" data-theme='e'>
               <p>Product list page</p>
-              <p>You can place orders for products from here.</p>
-              <div id="productName1"></div>
-              <img id="productImg1" src="" alt="Product Image" style="width:100px;height:100px;">
-              <div id="productPrice1"></div>
-              <a href="tryit.asp-filename=tryjqmob_themes_buttons.html#" class="ui-btn ui-btn-inline" id="btnCart1">Add this to cart!</a>
-              <!--<button id="btnCart1" type="button">Add this to cart!</button> -->
-
+              <p>You can add any product to your cart from here.</p>
+              <div class="productList" id="productName0"></div>
+              <img class="productList" id="productImg0" src="" alt="Product Image" style="width:100px;height:100px;">
+              <div class="productList" id="productPrice0"></div>
+              <button class="productList" id="btnCart0" type="button">Add to cart</button>
+              </br>
+              <div class="productList" id="productName1"></div>
+              <img class="productList" id="productImg1" src="" alt="Product Image" style="width:100px;height:100px;">
+              <div class="productList" id="productPrice1"></div>
+              <button class="productList" id="btnCart1" type="button">Add to cart</button>
+              </br>
+              <div class="productList" id="productName2"></div>
+              <img class="productList" id="productImg2" src="" alt="Product Image" style="width:100px;height:100px;">
+              <div class="productList" id="productPrice2"></div>
+              <button class="productList" id="btnCart2" type="button">Add to cart</button>
+            </br>
+              <a href="#page2">Take me to the Cart page</a>
             </div>
               
             <!--  newaccount page footer -->
@@ -74,16 +84,16 @@
             <!--  page2 header -->
             <div data-role="header" data-theme='b'>
                 <div display="block"><a href="#home">Home page</a>
-                  <a href="#page1">Page 1</a>
-                  <a href="#page2">Page 2</a>
-                  <a href="#page3">Page 3</a></div>
+                  <a href="#page1">Product Display Page</a>
+                  <a href="#page2">Cart Page</a>
+                  <a href="#page3">Purchase Page</a></div>
                   <h1>The Online Storefront</h1>
               </div>
             <!--  page2 page content -->
             <div data-role="content" data-theme='e'>
                 <p>Cart page</p>
-                <p>All of your currently carted items will be shown here, along with how many of each.</p>
-                <p>A price total will also be shown at the bottom.</p>
+                <p>Please review your order before purchasing! Add or subtract items from your cart as you need.</p>
+            </br>
                 <span id="stereoAmt"></span><span> Stereos</span>
                 <a href="tryit.asp-filename=tryjqmob_themes_buttons.html#" class="ui-btn ui-btn-inline" id="btnStereoMinus">-</a>
                 <a href="tryit.asp-filename=tryjqmob_themes_buttons.html#" class="ui-btn ui-btn-inline" id="btnStereoPlus">+</a></br>
@@ -93,7 +103,11 @@
                 <span id="remoteAmt"></span><span> Remotes</span>
                 <a href="tryit.asp-filename=tryjqmob_themes_buttons.html#" class="ui-btn ui-btn-inline" id="btnRemoteMinus">-</a>
                 <a href="tryit.asp-filename=tryjqmob_themes_buttons.html#" class="ui-btn ui-btn-inline" id="btnRemotePlus">+</a>
+          </br>
+        </br>
+                <a href="#page3">Take me to the purchase page!</a>
             </div>
+
               
             <!-- footer -->
             <div data-role="footer" data-theme='b'>
@@ -101,24 +115,23 @@
            </div>
       </div>
 
-    <!-- Start of gamewon page -->
+    <!-- Start of page 3 page -->
     <div data-role="page"  id="page3">
-            <!--  gamewon page header -->
+            <!--  page 3 page header -->
             <div data-role="header" data-theme='b'>
                 <div display="block"><a href="#home">Home page</a>
-                  <a href="#page1">Page 1</a>
-                  <a href="#page2">Page 2</a>
-                  <a href="#page3">Page 3</a></div>
+                  <a href="#page1">Product Display Page</a>
+                  <a href="#page2">Cart Page</a>
+                  <a href="#page3">Purchase Page</a></div>
                   <h1>The Online Storefront</h1>
               </div>
-            <!--  gamewon page content -->
+            <!--  page 3 page content -->
             <div data-role="content" data-theme='e'>
                 <p>Purchase page</p>
-                <p>You will be able to purchase all items currently in your cart from here.</p>
-                <p>A prompt will ask you if you're sure you want to spend the total amount</p>
-                <p>A final message saying "Thank you for your purchase" will appear afterwards, and the cart is emptied.</p>
 
-
+                <p id="cartMessage">There's nothing in your cart! Please add something to it.</p>
+                <a href="tryit.asp-filename=tryjqmob_themes_buttons.html#" class="ui-btn ui-btn-inline" id="btnPurchase">Purchase items</a>
+                
             </div>
               
             <!-- footer -->
